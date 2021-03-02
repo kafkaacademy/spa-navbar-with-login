@@ -66,4 +66,3 @@ export class LoginDialog extends LitElement {
 }
 
 customElements.define("login-dialog", LoginDialog);
-
