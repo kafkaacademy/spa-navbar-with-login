@@ -3,8 +3,12 @@ import './menu.mjs'
 import './dialog.mjs'
 import './city.mjs'
 
-const tab = document.querySelector("spa-menu");
-tab.addEventListener("menu-item-clicked", (event)=>openCity(event)  )
+
+const menu = document.querySelector("spa-menu");
+menu.addEventListener("menu-item-clicked", (event)=>openCity(event)  )
+
+const dialog = document.querySelector("login-dialog");
+dialog.menu=menu;
 
 function openCity(event) {
   for (const el of document.getElementsByClassName("tabcontent")) 

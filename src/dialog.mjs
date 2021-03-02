@@ -25,7 +25,7 @@ export class LoginDialog extends LitElement {
     static get properties() {
         return {
             title: { type: String },
-            menu: { type: String }
+            menu: { type: Object }
         };
     }
 
@@ -50,12 +50,15 @@ export class LoginDialog extends LitElement {
           
         loginButton.addEventListener("click", (e) => {
            dialog.close();
-         
-           const menu = document.getElementById(this.menu);
+           if (this.menu==null){
+             console.error("menu not added to login-dialog")
+             return;
+           }
+           
            const logoutBtn=document.createElement("button");
            logoutBtn.innerText="Logout"
            logoutBtn.classList.add("logout");
-           menu.addItem(logoutBtn)
+           this.menu.addItem(logoutBtn)
            logoutBtn.addEventListener("click", (e) => {
                window.location.assign(window.location.href)
            });
