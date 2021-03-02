@@ -8,13 +8,11 @@ export class LoginDialog extends LitElement {
             font-size: 30px
           } 
 
-          #loginButton{
-              
+          button{              
             font-size: 30px
           }
           .help{
-            font-size: 18px
-         
+            font-size: 18px         
           }
        `;
     }
