@@ -8,7 +8,7 @@ export class Menu extends LitElement {
 
     static get properties() {
         return {
-            items: {type: Array}
+            items: { type: Array }
         };
     }
 
@@ -45,34 +45,32 @@ export class Menu extends LitElement {
   background-color: #ccc;
 }
 
-
-
 .tab .logout{
     position: absolute;
     right: 0;
  }    
 `;
     }
-  
-    render() { 
+
+    render() {
         return html`
-        <div class="tab" id="tab">
-            ${this.items.map(item => html` <button class="tablinks"  @click=${(event)=>this.click(event,item)}>${item}</button>`)}
+        <div class="tab">
+            ${this.items.map(item => html` <button class="tablinks"  @click=${(event) => this.click(event, item)}>${item}</button>`)}
         </div>
-        ` 
+        `
     }
 
-    addItem(item){
-        const div= this.shadowRoot.getElementById("tab")
+    addItem(item) {
+        const div = this.shadowRoot.querySelector("div")
         div.appendChild(item)
     }
 
-    click(event,item){
+    click(event, item) {
         const customEvent = new CustomEvent('menu-item-clicked', {
-            detail: item        
-          });
-          this.dispatchEvent(customEvent);
-    } 
+            detail: item
+        });
+        this.dispatchEvent(customEvent);
+    }
 }
 
 customElements.define("spa-menu", Menu);

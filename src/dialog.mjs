@@ -31,10 +31,10 @@ export class LoginDialog extends LitElement {
 
     render() {
         return html`
-        <dialog id="dialog" open>
+        <dialog open>
             <div>
             <p>${this.title}</p>
-            <button id="loginButton">Login</button>
+            <button>Login</button>
             <br>
             <p class="help">After login, logout button comes on the right side
             </p>
@@ -45,8 +45,8 @@ export class LoginDialog extends LitElement {
     }
 
     firstUpdated(){
-        const dialog = this.shadowRoot.getElementById("dialog");
-        const loginButton = this.shadowRoot.getElementById("loginButton");
+        const dialog =  this.shadowRoot.querySelector("dialog")
+        const loginButton = this.shadowRoot.querySelector("button");
           
         loginButton.addEventListener("click", (e) => {
            dialog.close();
