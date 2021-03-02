@@ -56,18 +56,11 @@ export class Menu extends LitElement {
 .tab .logout{
     position: absolute;
     right: 0;
- }
-      
-       `;
+ }    
+`;
     }
   
-
-
-    render() {
-  // alert(this.items.length)
- // const its= JSON.parse(this.items);
- //${this.items.map(item => html` <button class="tablinks" @click=${(event)=>this.click(event,item)}>${item}</button>`)}
-     
+    render() { 
 
         return html`
         <div class="tab">
@@ -77,11 +70,11 @@ export class Menu extends LitElement {
     }
 
     click(event,item){
-        alert("click event "+item)
-    }
-
-  
+        const customEvent = new CustomEvent('menu-item-clicked', {
+            detail: item        
+          });
+          this.dispatchEvent(customEvent);
+    } 
 }
 
 customElements.define("spa-menu", Menu);
-
