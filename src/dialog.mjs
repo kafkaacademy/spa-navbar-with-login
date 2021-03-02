@@ -6,20 +6,16 @@ export class LoginDialog extends LitElement {
         dialog{
             background-color: lightgrey;
             font-size: 30px
-          } 
+        } 
 
-          button{              
+        button{              
             font-size: 30px
-          }
-          .help{
+        }
+        
+        .help{
             font-size: 18px         
-          }
+        }
        `;
-    }
-
-    constructor() {
-        super();
-        this.title = undefined;
     }
 
     static get properties() {
@@ -38,8 +34,7 @@ export class LoginDialog extends LitElement {
             <br>
             <p class="help">After login, logout button comes on the right side
             </p>
-            </div>
-           
+            </div>           
         </dialog>
         ` 
     }

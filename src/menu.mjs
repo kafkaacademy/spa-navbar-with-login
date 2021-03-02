@@ -2,10 +2,6 @@ import { LitElement, html, css } from 'lit-element';
 
 export class Menu extends LitElement {
 
-    constructor() {
-        super();
-    }
-
     static get properties() {
         return {
             items: { type: Array }
@@ -14,48 +10,44 @@ export class Menu extends LitElement {
 
     static get styles() {
         return css`
-        body {font-family: Arial;}
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
+        /* Style the buttons inside the tab */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+            font-size: 17px;
+        }
 
-/* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
 
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-.tab .logout{
-    position: absolute;
-    right: 0;
- }    
-`;
+        .tab .logout{
+            position: absolute;
+            right: 0;
+        }`;
     }
 
     render() {
         return html`
         <div class="tab">
-            ${this.items.map(item => html` <button class="tablinks"  @click=${(event) => this.click(event, item)}>${item}</button>`)}
+            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.click(item)}>${item}</button>`)}
         </div>
         `
     }
@@ -65,7 +57,7 @@ export class Menu extends LitElement {
         div.appendChild(item)
     }
 
-    click(event, item) {
+    click(item) {
         const customEvent = new CustomEvent('menu-item-clicked', {
             detail: item
         });
