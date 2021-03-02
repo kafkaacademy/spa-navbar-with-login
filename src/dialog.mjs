@@ -54,6 +54,8 @@ export class LoginDialog extends LitElement {
              console.error("menu not added to login-dialog")
              return;
            }
+
+           this.menu.style.display="block"
            
            loginButton.innerText="Logout"
            loginButton.classList.add("logout");
