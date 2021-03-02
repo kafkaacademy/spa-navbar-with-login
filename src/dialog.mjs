@@ -55,16 +55,13 @@ export class LoginDialog extends LitElement {
              return;
            }
            
-           const logoutBtn=document.createElement("button");
-           logoutBtn.innerText="Logout"
-           logoutBtn.classList.add("logout");
-           this.menu.addItem(logoutBtn)
-           logoutBtn.addEventListener("click", (e) => {
+           loginButton.innerText="Logout"
+           loginButton.classList.add("logout");
+           this.menu.addItem(loginButton)
+           loginButton.addEventListener("click", (e) => {
                window.location.assign(window.location.href)
-           });
-      
-        })
-     
+           });      
+        })     
     }
 }
 
