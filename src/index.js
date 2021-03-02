@@ -4,15 +4,10 @@ import './dialog.mjs'
 import './city.mjs'
 
 const tab = document.querySelector("spa-menu");
-tab.addEventListener("menu-item-clicked", (e)=>alert(e.detail))
-const btns = document.getElementsByClassName("tablinks");
-for (let i = 0; i < btns.length; i++) {
-  const btn = btns[i];
-  btn.addEventListener("click", () => { openCity(event, btn.innerText) })
-}
+tab.addEventListener("menu-item-clicked", (event)=>openCity(event)  )
 
-function openCity(evt, cityName) {
-  var i, tabcontent, tablinks;
+function openCity(evt) {
+  let i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
@@ -21,6 +16,6 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(evt.detail).style.display = "block";
   evt.currentTarget.className += " active";
 }

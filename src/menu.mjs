@@ -55,12 +55,16 @@ export class Menu extends LitElement {
     }
   
     render() { 
-
         return html`
-        <div class="tab">
+        <div class="tab" id="tab">
             ${this.items.map(item => html` <button class="tablinks"  @click=${(event)=>this.click(event,item)}>${item}</button>`)}
         </div>
         ` 
+    }
+
+    addItem(item){
+        const div= this.shadowRoot.getElementById("tab")
+        div.appendChild(item)
     }
 
     click(event,item){
