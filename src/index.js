@@ -1,4 +1,5 @@
 import './index.css'
+import './menu.mjs'
 import './dialog.mjs'
 import './city.mjs'
 

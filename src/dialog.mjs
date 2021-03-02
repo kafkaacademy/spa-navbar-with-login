@@ -49,13 +49,19 @@ export class LoginDialog extends LitElement {
     firstUpdated(){
         const dialog = this.shadowRoot.getElementById("dialog");
         const loginButton = this.shadowRoot.getElementById("loginButton");
+          
         loginButton.addEventListener("click", (e) => {
+            alert(123)
            dialog.close();
+         
            const menu = document.getElementById(this.tabMenu);
            const logoutBtn=document.createElement("button");
            logoutBtn.innerText="Logout"
            logoutBtn.classList.add("logout");
            menu.appendChild(logoutBtn)
+           logoutBtn.addEventListener("click", (e) => {
+               window.location.assign(window.location.href)
+           });
       
         })
      
