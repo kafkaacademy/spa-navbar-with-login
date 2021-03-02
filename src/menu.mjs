@@ -45,13 +45,7 @@ export class Menu extends LitElement {
   background-color: #ccc;
 }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
+
 
 .tab .logout{
     position: absolute;

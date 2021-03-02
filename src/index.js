@@ -3,7 +3,6 @@ import './menu.mjs'
 import './dialog.mjs'
 import './city.mjs'
 
-
 const tab = document.querySelector("spa-menu");
 tab.addEventListener("menu-item-clicked", (e)=>alert(e.detail))
 const btns = document.getElementsByClassName("tablinks");
