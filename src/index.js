@@ -25,5 +25,5 @@ function openCity(event) {
   for (const link of document.getElementsByClassName("tablinks"))
     link.className = link.className.replace(" active", "");
   event.detail.style.display = "block";
-  event.currentTarget.className += " active";
+  event.detail.className += " active";
 }
