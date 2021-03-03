@@ -10,6 +10,10 @@ export class MenuItem{
 
 export class Menu extends LitElement {
 
+    constructor() {
+      super();
+      this.items=[]
+    }
     static get properties() {
         return {
             items: { type: Array }
