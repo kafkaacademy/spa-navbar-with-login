@@ -17,3 +17,12 @@ Yust download, and
   npm install
   npm start
   ```
+
+For the advanced version
+  
+  ```console
+  cd <project>
+  git checkout advanded
+  npm install
+  npm start
+  ```
