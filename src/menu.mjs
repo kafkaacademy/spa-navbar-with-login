@@ -1,10 +1,11 @@
 import { LitElement, html, css } from 'lit-element';
 
 export class MenuItem{
-    constructor(id, name) {
-        this.id = id;
+    constructor(name,el) {
+        this.id = el.id;
         this.name = name;
-      }
+        this.tagName = el.tagName;
+    }
 }
 
 export class Menu extends LitElement {

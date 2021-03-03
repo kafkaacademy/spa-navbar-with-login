@@ -9,7 +9,7 @@ spaMenu.addEventListener("menu-item-clicked", (event)=>openCity(event)  )
 
 const items=[];
 for (const el of document.getElementsByClassName("tabcontent")) {
-   items.push(new MenuItem(el.id,  el.id))
+   items.push(new MenuItem(el.id,  el))
 } 
 
 spaMenu.items=items;
@@ -20,7 +20,8 @@ dialog.menu=spaMenu;
 
 function openCity(event) {
   for (const el of document.getElementsByClassName("tabcontent")) 
-    el.style.display = "none";  
+    el.style.display = "none"; 
+    
   for (const link of document.getElementsByClassName("tablinks")) 
     link.className = link.className.replace(" active", "");  
   document.getElementById(event.detail).style.display = "block";
