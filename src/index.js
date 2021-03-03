@@ -4,7 +4,14 @@ import './dialog.mjs'
 import './city.mjs'
 
 const spaMenu = document.querySelector("spa-menu");
-spaMenu.addEventListener("menu-item-clicked", (event) => switchItem(event.detail))
+
+function switchToItem(menuItem) {
+  spaMenu.items.forEach((item) =>item.el.style.display = "none" )
+  menuItem.el.style.display = "block";
+}
+
+spaMenu.switch=switchToItem;
+
 
 for (const el of document.getElementsByClassName("tabcontent")) {
   spaMenu.items.push(new MenuItem(el.id, el))
@@ -13,7 +20,3 @@ for (const el of document.getElementsByClassName("tabcontent")) {
 const dialog = document.querySelector("login-dialog");
 dialog.menu = spaMenu;
 
-function switchItem(element) {
-  spaMenu.items.forEach((item) =>item.el.style.display = "none" )
-  element.style.display = "block";
-}

@@ -20,6 +20,10 @@ export class Menu extends LitElement {
         };
     }
 
+    switch(item){
+        alert(" switch function not overridden")
+    }
+
     static get styles() {
         return css`
         .tab {
@@ -59,7 +63,7 @@ export class Menu extends LitElement {
     render() {
         return html`
         <div class="tab">
-            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.click(item.el)}>${item.name}</button>`)}
+            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.switch(item)}>${item.name}</button>`)}
         </div>
         `
     }
@@ -71,12 +75,6 @@ export class Menu extends LitElement {
         div.appendChild(logoutButton)
     }
 
-    click(element) {
-        const customEvent = new CustomEvent('menu-item-clicked', {
-            detail: element
-        });
-        this.dispatchEvent(customEvent);
-    }
 }
 
 customElements.define("spa-menu", Menu);
