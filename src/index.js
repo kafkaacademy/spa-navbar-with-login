@@ -5,12 +5,10 @@ import './city.mjs'
 
 const spaMenu = document.querySelector("spa-menu");
 
-function switchToItem(menuItem) {
+spaMenu.switch=(menuItem)=> {
   spaMenu.items.forEach((item) =>item.el.style.display = "none" )
   menuItem.el.style.display = "block";
-}
-
-spaMenu.switch=switchToItem;
+};
 
 
 for (const el of document.getElementsByClassName("tabcontent")) {
