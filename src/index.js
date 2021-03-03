@@ -10,11 +10,11 @@ spaMenu.switch = (menuItem) => {
   menuItem.el.style.display = "block";
 };
 
-spaMenu.items = addItems();
+spaMenu.items = getMenuItems();
 
-function addItems() {
+function getMenuItems() {
   const items = [];
-  for (const el of document.getElementsByClassName("tabcontent")) {
+  for (const el of document.getElementsByClassName("menuItem")) {
     items.push(new MenuItem(el.id, el))
   }
   return items;
@@ -22,4 +22,3 @@ function addItems() {
 
 const dialog = document.querySelector("login-dialog");
 dialog.menu = spaMenu;
-
