@@ -8,9 +8,10 @@ The repo has 2 branches:
   
   branch 'advanced' : a more professional example, to show how the simple navbar can be extended
 
-Yust download, cd <project> and 
+Yust download, and 
   
   ```console
+  cd <project>
   npm install
   npm start
   ```
