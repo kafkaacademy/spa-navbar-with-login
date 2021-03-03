@@ -4,7 +4,7 @@ export class MenuItem{
     constructor(name,el) {
         this.id = el.id;
         this.name = name;
-        this.tagName = el.tagName;
+        this.el = el;
     }
 }
 
@@ -55,7 +55,7 @@ export class Menu extends LitElement {
     render() {
         return html`
         <div class="tab">
-            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.click(item.id)}>${item.name}</button>`)}
+            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.click(item.el)}>${item.name}</button>`)}
         </div>
         `
     }
@@ -67,9 +67,9 @@ export class Menu extends LitElement {
         div.appendChild(logoutButton)
     }
 
-    click(item) {
+    click(element) {
         const customEvent = new CustomEvent('menu-item-clicked', {
-            detail: item
+            detail: element
         });
         this.dispatchEvent(customEvent);
     }
