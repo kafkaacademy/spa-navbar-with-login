@@ -52,9 +52,7 @@ export class LoginDialog extends LitElement {
 
            this.menu.style.display="block"
            
-           loginButton.innerText="Logout"
-           loginButton.classList.add("logout");
-           this.menu.addItem(loginButton)
+           this.menu.addLogout(loginButton)
            loginButton.addEventListener("click", (e) => {
                window.location.assign(window.location.href)
            });      

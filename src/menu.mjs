@@ -1,5 +1,12 @@
 import { LitElement, html, css } from 'lit-element';
 
+export class MenuItem{
+    constructor(id, name) {
+        this.id = id;
+        this.name = name;
+      }
+}
+
 export class Menu extends LitElement {
 
     static get properties() {
@@ -47,14 +54,16 @@ export class Menu extends LitElement {
     render() {
         return html`
         <div class="tab">
-            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.click(item)}>${item}</button>`)}
+            ${this.items.map(item => html` <button class="tablinks"  @click=${() => this.click(item.id)}>${item.name}</button>`)}
         </div>
         `
     }
 
-    addItem(item) {
+    addLogout(logoutButton) {
+        logoutButton.innerText="Logout"
+        logoutButton.classList.add("logout");     
         const div = this.shadowRoot.querySelector("div")
-        div.appendChild(item)
+        div.appendChild(logoutButton)
     }
 
     click(item) {

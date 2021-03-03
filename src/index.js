@@ -1,14 +1,22 @@
 import './index.css'
-import './menu.mjs'
+import {MenuItem} from './menu.mjs'
 import './dialog.mjs'
 import './city.mjs'
 
 
-const menu = document.querySelector("spa-menu");
-menu.addEventListener("menu-item-clicked", (event)=>openCity(event)  )
+const spaMenu = document.querySelector("spa-menu");
+spaMenu.addEventListener("menu-item-clicked", (event)=>openCity(event)  )
+
+const items=[];
+for (const el of document.getElementsByClassName("tabcontent")) {
+   items.push(new MenuItem(el.id,  el.id))
+} 
+
+spaMenu.items=items;
 
 const dialog = document.querySelector("login-dialog");
-dialog.menu=menu;
+dialog.menu=spaMenu;
+
 
 function openCity(event) {
   for (const el of document.getElementsByClassName("tabcontent")) 
