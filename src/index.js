@@ -14,7 +14,6 @@ const dialog = document.querySelector("login-dialog");
 dialog.menu = spaMenu;
 
 function switchItem(element) {
-  for (const el of document.getElementsByClassName("tabcontent"))
-    el.style.display = "none";
+  spaMenu.items.forEach((item) =>item.el.style.display = "none" )
   element.style.display = "block";
 }
